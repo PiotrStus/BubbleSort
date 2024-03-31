@@ -6,25 +6,21 @@
         static void Main(string[] args)
         {
             initialList = [10, 5, 5, 5, 9, 11, 8, 7, 21, 6, 5, 4, 3, 2, 1];
-            Console.Write("Unsorted list: ");
-            DisplayList(initialList);
+            DisplayList("Unsorted", initialList);
             List<int> finalList = SortList(initialList);
-            Console.Write("Sorted list: ");
-            DisplayList(finalList);
+            DisplayList("Sorted ", finalList);
+            Console.WriteLine();
 
             initialList = [1, 1, 1, 1, 1, 1, 1, 1, 1];
-            Console.Write("Unsorted list: ");
-            DisplayList(initialList);
+            DisplayList("Unsorted", initialList);
             finalList = SortList(initialList);
-            Console.Write("Sorted list: ");
-            DisplayList(finalList);
+            DisplayList("Sorted ", finalList);
+            Console.WriteLine();
 
             initialList = [];
-            Console.Write("Unsorted list: ");
-            DisplayList(initialList);
+            DisplayList("Unsorted", initialList);
             finalList = SortList(initialList);
-            Console.Write("Sorted list: ");
-            DisplayList(finalList);
+            DisplayList("Sorted ", finalList);
         }
 
 
@@ -32,11 +28,13 @@
         /// Displaying lists elements
         /// </summary>
         /// <param name="listTwoDisplay"></param>
-        static void DisplayList(List<int> listTwoDisplay)
+        static void DisplayList(string text, List<int> listTwoDisplay)
         {
+            Console.Write($"{text} list: ");
             if (listTwoDisplay.Count == 0)
             {
                 Console.WriteLine("[]");
+                
             }
             else
             {
@@ -46,8 +44,9 @@
                     Console.Write(' ');
                 }
                 Console.WriteLine();
-                Console.WriteLine();
+                
             }
+            
         }
 
 
