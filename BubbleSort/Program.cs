@@ -3,66 +3,59 @@
     internal class Program
     {
         static List<int> numbersTwoSort = new List<int>();
-        static int firstNumber;
-        static int newNumber;
         static void Main(string[] args)
         {
-            numbersTwoSort = [4, 7, 2, 5, 1, 3, 1, 9, 6];
-            Console.Write("Old Bubble sort: ");
-            returnList();
-            int ilosc = numbersTwoSort.Count;
-            for (int j = numbersTwoSort.Count - 1; j >= 0; j--)
+            numbersTwoSort = [10, 5, 5, 5, 9, 11, 8, 7, 21, 6, 5, 4, 3, 2, 1];
+            Console.Write("Unsorted list: ");
+            ReturnList();
+            SortList(numbersTwoSort);
+            Console.Write("Sorted list: ");
+            ReturnList();
+        }
+        static void ReturnList()
+        {
+            if (numbersTwoSort.Count == 0)
             {
-                pushHighestToLastPosition(j);
+                Console.WriteLine(numbersTwoSort);
+            }
+            else
+            {
+                for (int i = 0; i < numbersTwoSort.Count; i++)
+                {
+                    Console.Write(numbersTwoSort[i]);
+                    Console.Write(' ');
+                }
                 Console.WriteLine();
-                Console.Write("New Bubble sort: ");
-                returnList();
-
+                Console.WriteLine();
             }
-            
-            
-            
-
         }
-
-
-        static void returnList()
+        static void SortList(List<int> unsortedList)
         {
-            for (int i = 0; i < numbersTwoSort.Count; i++)
+            List<int> finalList = unsortedList;
+            for (int j = finalList.Count - 1; j >= 0; j--)
             {
-                Console.Write(numbersTwoSort[i]);
-            }
-            Console.WriteLine();
-            Console.WriteLine();
-        }
-        static void pushHighestToLastPosition(int test)
-        {
-            int test1 = test;
-            for (int i = 0; i < test1; i++)
-            {
-                Console.WriteLine("Numbers to compare: ");
-                if ((i + 1) < numbersTwoSort.Count)
+                for (int i = 0; i < finalList.Count(); i++)
                 {
-                    Console.WriteLine(numbersTwoSort[i]);
-                    Console.WriteLine(numbersTwoSort[i + 1]);
+                    //Console.WriteLine("Numbers to compare: ");
+                    if ((i + 1) < finalList.Count)
+                    {
+                        //Console.WriteLine(finalList[i]);
+                        //Console.WriteLine(finalList[i + 1]);
+                    }
+                    if (((i + 1) < finalList.Count) && finalList[i] > finalList[i + 1])
+                    {
+                        //Console.WriteLine("true");
+                        int firstPosition = finalList[i];
+                        int secondPosition = finalList[i + 1];
+                        finalList[i + 1] = firstPosition;
+                        finalList[i] = secondPosition;
+                    }
+                    else
+                    {
+                        //Console.WriteLine("false");
+                    }
+                    //returnList();
                 }
-
-
-
-                if (((i + 1) < numbersTwoSort.Count) && numbersTwoSort[i] > numbersTwoSort[i + 1])
-                {
-                    Console.WriteLine("true");
-                    firstNumber = numbersTwoSort[i];
-                    newNumber = numbersTwoSort[i + 1];
-                    numbersTwoSort[i + 1] = firstNumber;
-                    numbersTwoSort[i] = newNumber;
-
-                }
-                else
-                {
-                    Console.WriteLine("false");
-                }
-                returnList();
             }
         }
     }
