@@ -11,6 +11,20 @@
             List<int> finalList = SortList(initialList);
             Console.Write("Sorted list: ");
             DisplayList(finalList);
+
+            initialList = [1, 1, 1, 1, 1, 1, 1, 1, 1];
+            Console.Write("Unsorted list: ");
+            DisplayList(initialList);
+            finalList = SortList(initialList);
+            Console.Write("Sorted list: ");
+            DisplayList(finalList);
+
+            initialList = [];
+            Console.Write("Unsorted list: ");
+            DisplayList(initialList);
+            finalList = SortList(initialList);
+            Console.Write("Sorted list: ");
+            DisplayList(finalList);
         }
         static void DisplayList(List<int> listTwoDisplay)
         {
@@ -32,21 +46,21 @@
         static List<int> SortList(List<int> unsortedList)
         {
             List<int> sortedList = unsortedList;
-            if (sortedList.Count() > 0) {
-                for (int j = sortedList.Count - 1; j >= 0; j--)
+
+            for (int j = sortedList.Count - 1; j >= 0; j--)
+            {
+                for (int i = 0; i < sortedList.Count(); i++)
                 {
-                    for (int i = 0; i < sortedList.Count(); i++)
+                    if (((i + 1) < sortedList.Count) && sortedList[i] > sortedList[i + 1])
                     {
-                        if (((i + 1) < sortedList.Count) && sortedList[i] > sortedList[i + 1])
-                        {
-                            int firstPosition = sortedList[i];
-                            int secondPosition = sortedList[i + 1];
-                            sortedList[i + 1] = firstPosition;
-                            sortedList[i] = secondPosition;
-                        }
+                        int firstPosition = sortedList[i];
+                        int secondPosition = sortedList[i + 1];
+                        sortedList[i + 1] = firstPosition;
+                        sortedList[i] = secondPosition;
                     }
                 }
             }
+
             return sortedList;
         }
     }
