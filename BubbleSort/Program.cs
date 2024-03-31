@@ -2,61 +2,52 @@
 {
     internal class Program
     {
-        static List<int> numbersTwoSort = new List<int>();
+        static List<int> initialList = new List<int>();
         static void Main(string[] args)
         {
-            numbersTwoSort = [10, 5, 5, 5, 9, 11, 8, 7, 21, 6, 5, 4, 3, 2, 1];
+            initialList = [10, 5, 5, 5, 9, 11, 8, 7, 21, 6, 5, 4, 3, 2, 1];
             Console.Write("Unsorted list: ");
-            ReturnList();
-            SortList(numbersTwoSort);
+            DisplayList(initialList);
+            List<int> finalList = SortList(initialList);
             Console.Write("Sorted list: ");
-            ReturnList();
+            DisplayList(finalList);
         }
-        static void ReturnList()
+        static void DisplayList(List<int> listTwoDisplay)
         {
-            if (numbersTwoSort.Count == 0)
+            if (listTwoDisplay.Count == 0)
             {
-                Console.WriteLine(numbersTwoSort);
+                Console.WriteLine("[]");
             }
             else
             {
-                for (int i = 0; i < numbersTwoSort.Count; i++)
+                for (int i = 0; i < listTwoDisplay.Count; i++)
                 {
-                    Console.Write(numbersTwoSort[i]);
+                    Console.Write(listTwoDisplay[i]);
                     Console.Write(' ');
                 }
                 Console.WriteLine();
                 Console.WriteLine();
             }
         }
-        static void SortList(List<int> unsortedList)
+        static List<int> SortList(List<int> unsortedList)
         {
-            List<int> finalList = unsortedList;
-            for (int j = finalList.Count - 1; j >= 0; j--)
-            {
-                for (int i = 0; i < finalList.Count(); i++)
+            List<int> sortedList = unsortedList;
+            if (sortedList.Count() > 0) {
+                for (int j = sortedList.Count - 1; j >= 0; j--)
                 {
-                    //Console.WriteLine("Numbers to compare: ");
-                    if ((i + 1) < finalList.Count)
+                    for (int i = 0; i < sortedList.Count(); i++)
                     {
-                        //Console.WriteLine(finalList[i]);
-                        //Console.WriteLine(finalList[i + 1]);
+                        if (((i + 1) < sortedList.Count) && sortedList[i] > sortedList[i + 1])
+                        {
+                            int firstPosition = sortedList[i];
+                            int secondPosition = sortedList[i + 1];
+                            sortedList[i + 1] = firstPosition;
+                            sortedList[i] = secondPosition;
+                        }
                     }
-                    if (((i + 1) < finalList.Count) && finalList[i] > finalList[i + 1])
-                    {
-                        //Console.WriteLine("true");
-                        int firstPosition = finalList[i];
-                        int secondPosition = finalList[i + 1];
-                        finalList[i + 1] = firstPosition;
-                        finalList[i] = secondPosition;
-                    }
-                    else
-                    {
-                        //Console.WriteLine("false");
-                    }
-                    //returnList();
                 }
             }
+            return sortedList;
         }
     }
 }
