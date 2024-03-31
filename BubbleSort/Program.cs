@@ -26,6 +26,12 @@
             Console.Write("Sorted list: ");
             DisplayList(finalList);
         }
+
+
+        /// <summary>
+        /// Displaying lists elements
+        /// </summary>
+        /// <param name="listTwoDisplay"></param>
         static void DisplayList(List<int> listTwoDisplay)
         {
             if (listTwoDisplay.Count == 0)
@@ -43,6 +49,13 @@
                 Console.WriteLine();
             }
         }
+
+
+        /// <summary>
+        /// Implemented bubble sort algorithm
+        /// </summary>
+        /// <param name="unsortedList"></param>
+        /// <returns></returns>
         static List<int> SortList(List<int> unsortedList)
         {
             List<int> sortedList = unsortedList;
