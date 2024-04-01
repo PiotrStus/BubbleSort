@@ -27,6 +27,7 @@
         /// <summary>
         /// Displaying lists elements
         /// </summary>
+        /// <param name="text"></param>
         /// <param name="listTwoDisplay"></param>
         static void DisplayList(string text, List<int> listTwoDisplay)
         {
