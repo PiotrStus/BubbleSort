@@ -28,20 +28,20 @@
         /// Displaying lists elements
         /// </summary>
         /// <param name="text"></param>
-        /// <param name="listTwoDisplay"></param>
-        static void DisplayList(string text, List<int> listTwoDisplay)
+        /// <param name="ListToDisplay"></param>
+        static void DisplayList(string text, List<int> ListToDisplay)
         {
             Console.Write($"{text} list: ");
-            if (listTwoDisplay.Count == 0)
+            if (ListToDisplay.Count == 0)
             {
                 Console.WriteLine("[]");
                 
             }
             else
             {
-                for (int i = 0; i < listTwoDisplay.Count; i++)
+                for (int i = 0; i < ListToDisplay.Count; i++)
                 {
-                    Console.Write(listTwoDisplay[i]);
+                    Console.Write(ListToDisplay[i]);
                     Console.Write(' ');
                 }
                 Console.WriteLine();
